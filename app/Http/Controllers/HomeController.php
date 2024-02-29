@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
         return view('home.plane.plane');
     }
+
+    public function hotel()
+    {
+        return view('home.hotel.hotel');
+    }
 }

@@ -23,5 +23,6 @@ Auth::routes();
 // home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/plane', [App\Http\Controllers\HomeController::class, 'plane'])->name('home.plane');
+Route::get('/home/hotel', [App\Http\Controllers\HomeController::class, 'hotel'])->name('home.hotel');
 
 Route::get('/home/detail/tiket', [App\Http\Controllers\Plane\TiketController::class, 'detailTiket'])->name('detail.tiket');
