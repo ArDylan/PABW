@@ -7,18 +7,32 @@
                 Booking &amp; Flights </div>
         </div>
         <div class="flex md:order-2 space-x-2 md:space-x-5 rtl:space-x-reverse">
-            <div
-                class="rounded border-solid bordbg-gray-100 border pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row gap-2 items-center justify-center shrink-0 relative">
-                <button
-                    class="text-[#ffffff] text-left font-['Inter-Regular',_sans-serif] text-[10px] font-normal relative">
-                    Login </button>
-            </div>
-            <div
-                class="bg-[#ffffff] rounded pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row gap-2 items-center justify-center shrink-0 relative">
-                <button
-                    class="text-[#000000] text-left font-['Inter-Regular',_sans-serif] text-[10px] font-normal relative">
-                    Sign up </button>
-            </div>
+            @if (Auth::user())
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            @else
+                <div
+                    class="rounded border-solid bordbg-gray-100 border pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row gap-2 items-center justify-center shrink-0 relative">
+                    <a href="/login"
+                        class="text-[#ffffff] text-left font-['Inter-Regular',_sans-serif] text-[10px] font-normal relative">
+                        Login </a>
+                </div>
+                <div
+                    class="bg-[#ffffff] rounded pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row gap-2 items-center justify-center shrink-0 relative">
+                    <a href="/register"
+                        class="text-[#000000] text-left font-['Inter-Regular',_sans-serif] text-[10px] font-normal relative">
+                        Sign up </a>
+                </div>
+            @endif
             <button data-collapse-toggle="navbar-sticky" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-sticky" aria-expanded="false">
@@ -39,12 +53,12 @@
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{ route('home.hotel') }}"
                         class="block py-2 px-3 text-sm text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0 md:dark:hover:text-indigo-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Booking
-                        Ticket</a>
+                        Hotel</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="{{ route('home.plane') }}"
                         class="block py-2 px-3 text-sm text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-indigo-700 md:p-0 md:dark:hover:text-indigo-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Flights
                         Ticket</a>
                 </li>

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_saldos_histories', function (Blueprint $table) {
+        Schema::create('facilities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('description');
-            $table->timestamp('time');
-            $table->foreignId('user_saldo_id')->constrained('user_saldos');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_saldos_histories');
+        Schema::dropIfExists('facilities');
     }
 };

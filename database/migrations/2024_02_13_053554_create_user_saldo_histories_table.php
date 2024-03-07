@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_statuses', function (Blueprint $table) {
+        Schema::create('user_saldo_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 20);
             $table->string('description');
             $table->timestamp('time');
-            $table->foreignId('book_id')->constrained('books');
+            $table->foreignId('user_saldo_id')->constrained('user_saldos');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_statuses');
+        Schema::dropIfExists('user_saldos_histories');
     }
 };
