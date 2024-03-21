@@ -13,7 +13,7 @@
                         <div class="text-slate-500 text-2xl font-bold font-['Inter']">50</div>
                     </div>
                 </div>
-                <img src="/asset/img/icon-park-outline_list.jpg" class="w-6 h-6 relative"></img>
+                <i class="fa-solid fa-hotel fa-3x text-slate-500"></i>
             </div>
             <div
                 class="ThisMenuProvidesAComprehensiveViewOfRoomAdditionsAndReductions self-stretch text-black text-opacity-25 text-xs font-bold font-['Inter']">
@@ -27,7 +27,7 @@
                         <div class=" text-slate-500 text-2xl font-bold font-['Inter']">24</div>
                     </div>
                 </div>
-                <img src="/asset/img/icon-park-outline_list.jpg" class="w-6 h-6 relative"></img>
+                <i class="fa-solid fa-plane-departure fa-3x text-slate-500"></i>
             </div>
             <div class="self-stretch text-black text-opacity-25 text-xs font-bold font-['Inter']">This menu provides a
                 comprehensive view of flight additions and reductions</div>
@@ -40,7 +40,8 @@
                         <div class="text-slate-500 text-2xl font-bold font-['Inter']">10</div>
                     </div>
                 </div>
-                <img src="/asset/img/icon-park-outline_list.jpg" class="w-6 h-6 relative"></img>
+                <i class="fa-solid fa-users text-slate-500 fa-3x"></i>
+
             </div>
             <div class="self-stretch text-black text-opacity-25 text-xs font-bold font-['Inter']">This menu provides a
                 comprehensive view of user additions and reductions</div>

@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <style>
@@ -28,6 +31,10 @@
 
         body {
             font-family: 'Poppins', sans-serif;
+        }
+
+        [modal-backdrop] {
+            display: none;
         }
     </style>
 
@@ -39,7 +46,7 @@
     <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
             @yield('navbar')
-            <div class="flex flex-row-fluid bg-gray-100" id="kt_app_wrapper">
+            <div class="flex flex-row-fluid bg-gray-100 min-h-screen" id="kt_app_wrapper">
                 <div class="flex-shrink">
                     @yield('sidebar')
                 </div>
