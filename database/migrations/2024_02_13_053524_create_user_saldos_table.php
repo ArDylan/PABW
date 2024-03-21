@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('user_saldos', function (Blueprint $table) {
             $table->id();
             $table->string('nominal', 13);
-            $table->string('bank', 20);
-            $table->string('account_number', 20);
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

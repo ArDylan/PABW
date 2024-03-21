@@ -33,4 +33,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function FlightSchedule()
+    {
+        return $this->hasMany(FlightSchedule::class);
+    }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class);
+    }
+
+    public function BookHotels()
+    {
+        return $this->hasMany(BookHotel::class);
+    }
+    
+
+    public function userSaldo()
+    {
+        return $this->hasOne(UserSaldo::class);
+    }
+
+    public function userSaldoHistory()
+    {
+        return $this->hasMany(UserSaldoHistory::class);
+    }
 }
