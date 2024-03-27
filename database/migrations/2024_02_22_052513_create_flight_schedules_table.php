@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('airline_id')->constrained('airlines');
-            $table->integer('flight_number');
+            $table->string('flight_number');
             $table->integer('price');
             $table->integer('total_seat');
             $table->date('flight_date');
@@ -23,7 +23,8 @@ return new class extends Migration
             $table->time('arrival');
             $table->string('from', 20);
             $table->string('destination', 20);
-            $table->string('transit', 20);
+            $table->string('transit', 20)->nullable();
+            $table->enum('staus', ['waiting', 'posted', 'flight', 'expire'])->default('waiting');
             $table->timestamps();
         });
     }

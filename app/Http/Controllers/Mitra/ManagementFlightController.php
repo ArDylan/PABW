@@ -16,18 +16,18 @@ class ManagementFlightController extends Controller
 
     public function store(Request $request){
         // dd($request->all());
-        // $request->validate([
-        //     'airline_id' => 'required',
-        //     'flight_number' => 'required',
-        //     'price' => 'required',
-        //     'total_seat' => 'required',
-        //     'flight_date' => 'required',
-        //     'departure' => 'required',
-        //     'arrival' => 'required',
-        //     'from' => 'required',
-        //     'destination' => 'required',
-        //     'transit' => 'required',
-        // ]);
+        $request->validate([
+            'airline_id' => 'required',
+            'flight_number' => 'required',
+            'price' => 'required',
+            'total_seat' => 'required',
+            'flight_date' => 'required',
+            'departure' => 'required',
+            'arrival' => 'required',
+            'from' => 'required',
+            'destination' => 'required',
+            'transit' => 'required',
+        ]);
 
         $flight = FlightSchedule::create([
             'user_id' => $request->user()->id,

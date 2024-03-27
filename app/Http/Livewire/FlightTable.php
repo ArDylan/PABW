@@ -13,15 +13,15 @@ class FlightTable extends LivewireDatatable
     public function columns()
     {
         return [
-            Column::name('flight_number')->label('Flight Number')->filterable(),
-            Column::name('flight_date')->label('Flight Date')->filterable(),
-            Column::name('departure')->label('Departure Time')->filterable(),
-            Column::name('arrival')->label('Arrival Time')->filterable(),
+            Column::name('flight_number')->label('Flight Number'),
+            Column::name('flight_date')->label('Flight Date'),
+            Column::name('departure')->label('Departure Time'),
+            Column::name('arrival')->label('Arrival Time'),
             Column::callback(['from', 'destination'], function ($from, $destination) {
                 return "<p>$from - $destination</p>";
             })->label('Location')->unsortable(),
-            Column::name('total_seat')->label('Total Seat')->filterable(),
-            Column::name('price')->label('Price')->filterable(),
+            Column::name('total_seat')->label('Total Seat'),
+            Column::name('price')->label('Price'),
             Column::callback(['id'], function ($id) {
                 return view('mitra.flight.table-action', ['id' => $id]);
             }),
