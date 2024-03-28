@@ -27,7 +27,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form class="p-4 md:p-10" method="post" action="{{ route('management.flight.store') }}">
+                <form class="p-4 md:p-10" method="post" action="{{ route('admin.user.store') }}">
                     @csrf
                     <div class="mb-5">
                         <label for="name"
@@ -46,7 +46,7 @@
                     <div class="mb-5">
                         <label for="role"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
-                        <select id="airline_id" name="airline_id"
+                        <select id="role" name="role"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option value="admin">Admin</option>
                             <option value="mitra">Mitra</option>

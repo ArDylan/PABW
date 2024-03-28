@@ -15,20 +15,19 @@ class UserManagementController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'role' => 'required',
-            'phone' => 'required',
-            'password' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'role' => 'required',
+        //     'phone' => 'required',
+        // ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make('12345678'),
         ]);
 
         return back();

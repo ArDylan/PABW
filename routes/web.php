@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
             Route::prefix('flight')->group(function () {
                 Route::controller(FlightManagementController::class)->group(function () {
                     Route::get('/', 'index')->name('admin.management.flight.index');
+                    Route::post('/approve', 'approve')->name('admin.management.flight.approve');
                     Route::post('/store', 'store')->name('admin.management.flight.store');
                     Route::get('/edit', 'edit')->name('admin.management.flight.edit');
                     Route::get('/delete', 'delete')->name('admin.management.flight.delete');
