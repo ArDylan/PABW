@@ -74,14 +74,9 @@
                     <div class="w-full justify-between items-center inline-flex">
                         <div class="text-blue-500 text-md font-semibold font-['Inter']">Can Refund | Reschedule</div>
                         <button
-                            class="w-auto px-3 py-3 @if ($booked) bg-gray-500 @else bg-blue-500 @endif rounded justify-start items-center gap-2 inline-flex "
-                            @if ($booked) disabled @endif>
+                            class="w-auto px-3 py-3 bg-blue-500 rounded justify-start items-center gap-2 inline-flex ">
                             <div class="PaymentDetails text-white text-sm font-medium font-['Inter'] ">
-                                @if ($booked)
-                                Telah Dipesan
-                                @else
                                 Pesan Sekarang
-                                @endif
                             </div>
                             <img src="/asset/img/sendfill.png" class="w-3 h-3 relative">
                         </button>
