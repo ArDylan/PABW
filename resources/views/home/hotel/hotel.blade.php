@@ -155,86 +155,28 @@
         <!--fitur rekomendasi stay-->
         <div
             class="px-4 lg:px-0 gap-8 pt-3 pb-3 flex flex-row items-center justify-center flex-wrap self-stretch shrink-0 relative overflow-hidden">
-            <div
-                class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
-                <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
-                    <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
-                        <div class=" text-black text-left font-semibold text-lg">Pura Abisenel, Indonesia</div>
-                        <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
-                            <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
-                                    fill="black" />
-                            </svg>
-                            <div class="text-black text-left font-semibold text-lg">4.5</div>
+            @foreach ($hotels as $hotel)
+                <div
+                    class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
+                    <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
+                    <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
+                        <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
+                            <div class=" text-black text-left font-semibold text-lg">{{$hotel->name}}, {{$hotel->city}}</div>
+                            <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
+                                <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
+                                        fill="black" />
+                                </svg>
+                                <div class="text-black text-left font-semibold text-lg">{{$hotel->rating}}</div>
+                            </div>
                         </div>
+                        {{-- <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div> --}}
+                        <div class=" text-black text-left font-normal text-lg">@if($hotel->rooms)Rp {{$hotel->Rooms->first()->price}} - {{$hotel->rooms->first()->name}}@else Rp - @endif</div>
                     </div>
-                    <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div>
-                    <div class=" text-black text-left font-normal text-lg">Rp1.200.000 Night</div>
                 </div>
-            </div>
-            <div
-                class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
-                <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
-                    <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
-                        <div class=" text-black text-left font-semibold text-lg">Pura Abisenel, Indonesia</div>
-                        <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
-                            <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
-                                    fill="black" />
-                            </svg>
-                            <div class="text-black text-left font-semibold text-lg">4.5</div>
-                        </div>
-                    </div>
-                    <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div>
-                    <div class=" text-black text-left font-normal text-lg">Rp1.200.000 Night</div>
-                </div>
-            </div>
-            <div
-                class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
-                <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
-                    <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
-                        <div class=" text-black text-left font-semibold text-lg">Pura Abisenel, Indonesia</div>
-                        <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
-                            <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
-                                    fill="black" />
-                            </svg>
-                            <div class="text-black text-left font-semibold text-lg">4.5</div>
-                        </div>
-                    </div>
-                    <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div>
-                    <div class=" text-black text-left font-normal text-lg">Rp1.200.000 Night</div>
-                </div>
-            </div>
-            <div
-                class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
-                <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
-                    <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
-                        <div class=" text-black text-left font-semibold text-lg">Pura Abisenel, Indonesia</div>
-                        <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
-                            <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
-                                    fill="black" />
-                            </svg>
-                            <div class="text-black text-left font-semibold text-lg">4.5</div>
-                        </div>
-                    </div>
-                    <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div>
-                    <div class=" text-black text-left font-normal text-lg">Rp1.200.000 Night</div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

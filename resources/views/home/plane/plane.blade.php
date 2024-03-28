@@ -176,168 +176,36 @@
         <!--fitur rekomendasi flights-->
         <section
             class="px-4 lg:px-0 gap-8 pt-3 pb-3 flex flex-row items-center justify-center flex-wrap self-stretch shrink-0 relative overflow-hidden">
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
+            @foreach ($flights as $flight)
+                <a href="{{route("detail.tiket", $flight->id)}}"
+                    class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
+                    <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
+                        <div
+                            class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
+                            {{$flight->airline->name}} </div>
+                        <div
+                            class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
+                            {{$flight->from}} - {{$flight->destination}} </div>
                     </div>
-                </div>
-            </a>
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
                     <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
+                        class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
+                        Return | {{$flight->flight_date}} | {{$flight->total_seat}} Passenger | Economy </div>
+                    <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
+                        <div
+                            class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
+                            Rp {{$flight->price}} </div>
+                        <div class="shrink-0 w-6 h-6 relative overflow-hidden">
+                            <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
+                                    fill="#4682A9" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
-            <a href="{{route("detail.tiket")}}"
-                class="w-full lg:w-auto bg-gray-100 rounded p-3 flex flex-col gap-3 items-start justify-start shrink-0 relative overflow-hidden">
-                <div class="flex flex-row items-start justify-between self-stretch shrink-0 relative">
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Batik Air </div>
-                    <div
-                        class="text-[#000000] text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Jakarta - Surabaya </div>
-                </div>
-                <div
-                    class="text-shadow-background text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                    Return | Monday, 5 February 2024 | 2 Passenger | Economy </div>
-                <div class="flex flex-row items-center justify-between self-stretch shrink-0 relative">
-                    <div class="text-blue-4 text-left font-['Inter-SemiBold',_sans-serif] text-md font-semibold relative">
-                        Rp 1.350.000 </div>
-                    <div class="shrink-0 w-6 h-6 relative overflow-hidden">
-                        <svg class="h-[auto] absolute right-[0%] left-[0%] w-[100%] bottom-[0%] top-[0%] h-[100%] overflow-visible"
-                            width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.235 5.68603C20.667 4.49103 19.509 3.33303 18.314 3.76603L3.70904 9.04803C2.51004 9.48203 2.36504 11.118 3.46804 11.757L8.13004 14.456L12.293 10.293C12.4816 10.1109 12.7342 10.0101 12.9964 10.0124C13.2586 10.0146 13.5095 10.1198 13.6949 10.3052C13.8803 10.4906 13.9854 10.7414 13.9877 11.0036C13.99 11.2658 13.8892 11.5184 13.707 11.707L9.54404 15.87L12.244 20.532C12.882 21.635 14.518 21.489 14.952 20.291L20.235 5.68603Z"
-                                fill="#4682A9" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
+                </a>
+            @endforeach
         </section>
     </div>
 

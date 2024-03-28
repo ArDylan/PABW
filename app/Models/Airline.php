@@ -11,4 +11,8 @@ class Airline extends Model
 
     protected $guarded = [];
 
+    public function flightSchedules()
+    {
+        return $this->hasMany(FlightSchedule::class);
+    }
 }

@@ -20,13 +20,14 @@ class HomeController extends Controller
 
     public function Airline()
     {
-        Airline::all();
-        return view('home.plane.plane');
+        $flights = FlightSchedule::all();
+        return view('home.plane.plane', compact('flights'));
     }
 
     public function hotel()
     {
-        return view('home.hotel.hotel');
+        $hotels = Hotel::all();
+        return view('home.hotel.hotel', compact('hotels'));
     }
 
     public function history()

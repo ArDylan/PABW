@@ -32,7 +32,8 @@ Auth::routes();
 Route::prefix('home')->group(function () {
     Route::get('/hotel', [App\Http\Controllers\HomeController::class, 'hotel'])->name('home.hotel');
     Route::get('/plane', [App\Http\Controllers\HomeController::class, 'airline'])->name('home.plane');
-    Route::get('/detail/tiket', [App\Http\Controllers\Plane\TiketController::class, 'detailTiket'])->name('detail.tiket');
+    Route::get('/detail/tiket/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'detailTiket'])->name('detail.tiket');
+    Route::post('/ticket/order/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'orderTicket'])->name('order.ticket');
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
