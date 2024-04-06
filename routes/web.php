@@ -34,6 +34,7 @@ Route::prefix('home')->group(function () {
     Route::get('/plane', [App\Http\Controllers\HomeController::class, 'airline'])->name('home.plane');
     Route::get('/detail/tiket/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'detailTiket'])->name('detail.tiket');
     Route::post('/ticket/order/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'orderTicket'])->name('order.ticket');
+    Route::get('/ticket/history', [App\Http\Controllers\Plane\TiketController::class, 'historyTicket'])->name('history.ticket');
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

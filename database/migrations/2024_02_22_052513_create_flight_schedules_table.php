@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('from', 20);
             $table->string('destination', 20);
             $table->string('transit', 20)->nullable();
-            $table->enum('staus', ['waiting', 'posted', 'flight', 'expire'])->default('waiting');
+            $table->enum('status', ['waiting', 'posted', 'flight', 'expire'])->default('waiting');
             $table->timestamps();
         });
     }

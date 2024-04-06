@@ -39,4 +39,10 @@ class TiketController extends Controller
         ]);
         return redirect()->route('home.plane');
     }
+
+    public function historyTicket(Request $request)
+    {
+        $booked = BookTiket::where('user_id', auth()->user()->id)->get();
+        return view('home.plane.history-tiket', compact('booked'));
+    }
 }
