@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function Airline()
     {
-        $flights = FlightSchedule::all();
+        $flights = FlightSchedule::where('status', 'posted')->get();
         return view('home.plane.plane', compact('flights'));
     }
 

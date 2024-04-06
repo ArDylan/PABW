@@ -9,13 +9,13 @@
 
         {{-- mitra --}}
         @if (Auth::user()->role == "mitra")
-            <a href="{{route('management.flight.index')}}" class="justify-start items-center gap-[26px] inline-flex">
+            <a href="{{route('management.hotel.index')}}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-hotel"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Hotel Room</div>
             </a>
             <a href="{{route('management.flight.index')}}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-plane-departure"></i>
-                <div class="text-zinc-400 text-lg font-medium font-['Inter']">Flight Tiket</div>
+                <div class="text-zinc-400 text-lg font-medium font-['Inter']">Flight Schedule</div>
             </a>
         @endif
 

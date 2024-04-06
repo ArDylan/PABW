@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\HotelManagementController;
 use App\Http\Controllers\Admin\SaldoController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Hotel\HotelController;
-use App\Http\Controllers\Mitra\ManagementFlight;
 use App\Http\Controllers\Mitra\ManagementFlightController;
+use App\Http\Controllers\Mitra\ManagementHotelController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,6 +57,15 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', 'store')->name('management.flight.store');
                 Route::get('/edit', 'edit')->name('management.flight.edit');
                 Route::get('/delete', 'delete')->name('management.flight.delete');
+            });
+        });
+
+        Route::prefix('hotel')->group(function () {
+            Route::controller(ManagementHotelController::class)->group(function () {
+                Route::get('/', 'index')->name('management.hotel.index');
+                Route::post('/store', 'store')->name('management.hotel.store');
+                Route::get('/edit', 'edit')->name('management.hotel.edit');
+                Route::get('/delete', 'delete')->name('management.hotel.delete');
             });
         });
     });
