@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mitra;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ManagementHotelController extends Controller
@@ -96,7 +97,33 @@ class ManagementHotelController extends Controller
 
     public function editRoom($id)
     {
-        $room = \App\Models\Room::find($id);
+        $room = Room::find($id);
         return view('mitra.hotel.edit-room', compact('room'));
+    }
+
+    public function detail($id) {
+        $hotel = Hotel::with('rooms')->find($id);
+        $rooms = Room::where('hotel_id', $id)->get();
+
+        return view('mitra.hotel.detail', compact('hotel', 'rooms'));
+    }
+
+    public function addRooms($id, Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'room_number' => 'required',
+        ]);
+
+        $hotel = Hotel::find($id);
+
+        Room::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'room_number' => $request->room_number,
+            'hotel_id' => $hotel->id,
+        ]);
+
+        return back();
     }
 }

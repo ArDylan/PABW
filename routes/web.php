@@ -67,6 +67,9 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', 'store')->name('management.hotel.store');
                 Route::get('/edit', 'edit')->name('management.hotel.edit');
                 Route::get('/delete', 'delete')->name('management.hotel.delete');
+                Route::get('/detail/{id}', 'detail')->name('management.hotel.detail');
+                // management.hotel.add.rooms
+                Route::post('/add/rooms/{id}', 'addRooms')->name('management.hotel.add.rooms');
             });
         });
     });

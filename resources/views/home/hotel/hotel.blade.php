@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         {{-- <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div> --}}
-                        <div class=" text-black text-left font-normal text-lg">@if($hotel->rooms)Rp {{$hotel->Rooms->first()->price}} - {{$hotel->rooms->first()->name}}@else Rp - @endif</div>
+                        <div class=" text-black text-left font-normal text-lg">@if($hotel->rooms->first())Rp {{$hotel->rooms->first()->price}} - {{$hotel->rooms->first()->name}}@else Rp - @endif</div>
                     </div>
                 </div>
             @endforeach

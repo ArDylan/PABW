@@ -22,7 +22,7 @@ class HotelTable extends LivewireDatatable
                 if (Auth::user()->role == 'admin') {
                     return view('Admin.flight.table-action', ['id' => $id]);
                 }
-                return view('mitra.flight.table-action', ['id' => $id]);
+                return view('mitra.hotel.table-action', ['id' => $id]);
             }),
         ];
     }
