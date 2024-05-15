@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Airline;
 use App\Models\Hotel;
+use App\Models\User;
 use App\Models\FlightSchedule;
 use App\Models\BookHotel;
 use App\Models\UserSaldo;
@@ -15,7 +16,28 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        if(Auth::user()->role == 'admin'){
+
+            $flights = FlightSchedule::where('status', 'posted')->get();
+            $hotels = Hotel::all();
+            $users = User::all();
+            return view('home', compact('flights', 'hotels', 'users'));
+
+        } elseif(Auth::user()->role == 'mitra hotel'){
+            $flights = null;
+            $hotels = Hotel::where('user_id', Auth::user()->id)->get();
+            return view('home', compact('flights', 'hotels'));
+        
+        } elseif(Auth::user()->role == 'mitra airline'){
+            $hotels = null;
+            $flights = FlightSchedule::where('user_id', Auth::user()->id)->get();
+            return view('home', compact('flights', 'hotels'));
+        
+        } else{
+        
+            return view('home');
+        
+        }
     }
 
     public function Airline()

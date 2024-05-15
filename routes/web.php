@@ -106,8 +106,8 @@ Route::middleware('auth')->group(function () {
                 Route::post('/mitra', 'makeMitra')->name('admin.user.makeMitra');
                 Route::post('', 'store')->name('admin.user.store');
                 Route::get('/edit/{user}', 'edit')->name('admin.user.edit');
-                Route::post('/update/{user}', 'update')->name('admin.user.update');
-                Route::get('/delete/{user}', 'destroy')->name('admin.user.delete');
+                Route::put('/update/{user}', 'update')->name('admin.user.update');
+                Route::delete('/delete/{user}', 'destroy')->name('admin.user.delete');
             });
         });
 
@@ -117,8 +117,9 @@ Route::middleware('auth')->group(function () {
                     Route::get('/', 'index')->name('admin.management.flight.index');
                     Route::post('/approve', 'approve')->name('admin.management.flight.approve');
                     Route::post('/store', 'store')->name('admin.management.flight.store');
-                    Route::get('/edit', 'edit')->name('admin.management.flight.edit');
-                    Route::get('/delete', 'delete')->name('admin.management.flight.delete');
+                    Route::get('/edit/{flightSchedule}', 'edit')->name('admin.management.flight.edit');
+                    Route::put('/update/{flightSchedule}', 'update')->name('admin.management.flight.update');
+                    Route::delete('/delete/flight/{flightSchedule}', 'delete')->name('admin.management.flight.delete');
                 });
             });
         });

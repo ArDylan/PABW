@@ -29,8 +29,7 @@
                 </div>
                 <i class="fa-solid fa-plane-departure fa-3x text-slate-500"></i>
             </div>
-            <div class="self-stretch text-black text-opacity-25 text-xs font-bold font-['Inter']">This menu provides a
-                comprehensive view of flight additions and reductions</div>
+            <div class="self-stretch text-black text-opacity-25 text-xs font-bold font-['Inter']">Informasi penerbangan</div>
         </div>
         <div class=" p-[18px] bg-white rounded shadow flex-col justify-start items-start gap-3.5 inline-flex">
             <div class="self-stretch justify-between items-start inline-flex">
