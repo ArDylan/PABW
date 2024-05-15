@@ -58,7 +58,7 @@ class HotelController extends Controller
                 'status' => 'booked'
             ]);
 
-            BookHotel::create([
+            $bookHotel = BookHotel::create([
                 'hotel_id' => $room->hotel_id,
                 'room_id' => $room->id,
                 'user_id' => $user->id,
@@ -68,7 +68,7 @@ class HotelController extends Controller
 
             BookHotelStatus::create([
                 'status' => 'booked',
-                'book_hotel_id' => $room->bookHotel->id,
+                'book_hotel_id' => $bookHotel->id,
                 'description' => 'Pemesanan kamar ' . $room->name . ' ' . $room->hotel->name . ' ' . $request->order_date,
                 'time' => now()
             ]);
