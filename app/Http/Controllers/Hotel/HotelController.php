@@ -85,7 +85,7 @@ class HotelController extends Controller
             ]);
         });
 
-        return back();
+        return redirect()->route('history.hotel');
     }
 
     public function history()

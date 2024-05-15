@@ -9,4 +9,6 @@ class BookTiket extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
 }

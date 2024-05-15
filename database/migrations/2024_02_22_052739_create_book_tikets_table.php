@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('order_date');
             $table->string('seat_number');
             $table->integer('total_price');
-            $table->string('status');
+            $table->enum('status', ['booked', 'canceled', 'expired'])->default('booked');
             $table->timestamps();
         });
     }

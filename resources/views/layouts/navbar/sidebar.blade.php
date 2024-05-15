@@ -46,11 +46,11 @@
         {{-- user --}}
         <a href="{{ route('history.hotel') }}" class="justify-start items-center gap-[26px] inline-flex">
             <i class="fa-solid fa-hotel"></i>
-            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Booking Hotel</div>
+            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Riwayat Booking Hotel</div>
         </a>
         <a href="{{ route('history.ticket') }}" class="justify-start items-center gap-[26px] inline-flex">
             <i class="fa-solid fa-plane-departure"></i>
-            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Plane Tiket</div>
+            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Riwayat Plane Tiket</div>
         </a>
         {{-- wallet user --}}
         <a href="{{ route('admin.saldo.history', Auth::user()->id) }}" class="justify-start items-center gap-[26px] inline-flex">
