@@ -85,14 +85,17 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-    Route::get('/history', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
+    Route::controller(SaldoController::class)->group(function () {
+        Route::prefix('saldo')->group(function () {
+            Route::get('/history/{userSaldoId}', 'history')->name('admin.saldo.history');
+        });
+    });
 
     Route::prefix('admin')->group(function () {
 
         Route::controller(SaldoController::class)->group(function () {
             Route::prefix('saldo')->group(function () {
                 Route::get('/', 'index')->name('admin.saldo');
-                Route::get('/history/{userSaldoId}', 'history')->name('admin.saldo.history');
                 Route::post('/update', 'update')->name('admin.saldo.update');
             });
         });

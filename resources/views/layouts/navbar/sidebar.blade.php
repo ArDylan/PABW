@@ -52,10 +52,10 @@
             <i class="fa-solid fa-plane-departure"></i>
             <div class="text-zinc-400 text-lg font-medium font-['Inter']">Plane Tiket</div>
         </a>
-
-        <button class="justify-start items-center gap-[26px] inline-flex">
-            <i class="fa-solid fa-gear"></i>
-            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Setting</div>
-        </button>
+        {{-- wallet user --}}
+        <a href="{{ route('admin.saldo.history', Auth::user()->id) }}" class="justify-start items-center gap-[26px] inline-flex">
+            <i class="fa-solid fa-wallet"></i>
+            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Wallet</div>
+        </a>
     </div>
 </div>

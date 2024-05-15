@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Models\UserSaldo;
 use App\Models\UserSaldoHistory;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class SaldoController extends Controller
 {
@@ -20,6 +21,9 @@ class SaldoController extends Controller
 
     public function history(UserSaldo $userSaldoId)
     {
+        if (Auth::user()->role != 'admin' && Auth::user()->id != $userSaldoId->id){
+            return abort(404);
+        }
         return view('admin.saldo.history', compact('userSaldoId'));
     }
 
