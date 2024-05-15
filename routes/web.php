@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', 'store')->name('management.flight.store');
                 Route::get('/edit', 'edit')->name('management.flight.edit');
                 Route::get('/delete', 'delete')->name('management.flight.delete');
+                Route::post('/update/status/{flight}', 'updateStatus')->name('management.flight.update.status');
             });
         });
 
@@ -81,6 +82,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/detail/{id}', 'detail')->name('management.hotel.detail');
                 // management.hotel.add.rooms
                 Route::post('/add/rooms/{id}', 'addRooms')->name('management.hotel.add.rooms');
+                Route::post('/updateStatus/rooms/{id}', 'updateStatusRooms')->name('management.hotel.updateStatus.rooms');
             });
         });
     });

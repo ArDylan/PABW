@@ -126,4 +126,21 @@ class ManagementHotelController extends Controller
 
         return back();
     }
+
+    public function updateStatusRooms($id, Request $request) {
+        $room = Room::find($id);
+        if($room->status == 'booked'){
+            $room->bookHotel->where('status', 'booked')->first()->update(['check_in' => date('Y-m-d')]);
+            $room->status = 'used';
+        } elseif($room->status == 'used'){
+            $room->bookHotel->where('status', 'booked')->first()->update(['status' => 'checkout', 'check_out' => date('Y-m-d')]);
+            $room->status = 'available';
+        } elseif($room->status == 'available'){
+            $room->status = 'maintenance';
+        } elseif($room->status == 'maintenance'){
+            $room->status = 'available';
+        }
+        $room->save();
+        return back();
+    }
 }
