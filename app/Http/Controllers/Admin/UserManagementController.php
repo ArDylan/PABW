@@ -41,4 +41,21 @@ class UserManagementController extends Controller
 
         return back();
     }
+
+    public function edit(User $user){
+        return view('admin.user.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user){
+        $user->update($request->all());
+        $user->save();
+        return redirect()->route('admin.user');
+    }
+
+    public function destroy(User $user){
+        $user->userSaldoHistory()->delete();
+        $user->userSaldo()->delete();
+        $user->delete();
+        return back();
+    }
 }
