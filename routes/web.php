@@ -39,15 +39,17 @@ Route::prefix('home')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
+Route::prefix('hotel')->group(function () {
+    Route::controller(HotelController::class)->group(function () {
+        Route::get('/{hotel}', 'show')->name('hotel.show');
+    });
+});
+
 Route::middleware('auth')->group(function () {
+
     Route::prefix('hotel')->group(function () {
         Route::controller(HotelController::class)->group(function () {
-            Route::get('/{hotel}', 'show')->name('hotel.show');
-            Route::get('/create', 'create')->name('hotel.create');
-            Route::post('', 'store')->name('hotel.store');
-            Route::get('/edit/{hotel}', 'edit')->name('hotel.edit');
-            Route::post('/update/{hotel}', 'update')->name('hotel.update');
-            Route::get('/delete/{hotel}', 'destroy')->name('hotel.delete');
+            Route::post('/book/{hotel}', 'book')->name('hotel.book');
         });
     });
 

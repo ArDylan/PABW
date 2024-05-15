@@ -17,9 +17,9 @@ return new class extends Migration
             $table->foreignId('room_id')->constrained('rooms');
             $table->foreignId('user_id')->constrained('users');
             $table->date('order_date');
-            $table->date('check_in');
-            $table->date('check_out');
-            $table->string('status', 20);
+            $table->date('check_in')->nullable();
+            $table->date('check_out')->nullable();
+            $table->enum('status', ['booked', 'canceled', 'checkout'])->default('booked');
             $table->timestamps();
         });
     }

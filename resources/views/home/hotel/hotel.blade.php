@@ -76,41 +76,6 @@
                     </svg>
                 </div>
             </div>
-            <!-- <div class="flex flex-row gap-2 items-center justify-start flex-wrap self-stretch shrink-0 relative">
-                          <div
-                              class="bg-[#ffffff] rounded pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row items-center justify-between shrink-0 w-full md:w-[207px]  relative">
-                              <div
-                                  class="text-blue-4 text-left font-['Inter-Medium',_sans-serif] text-xs font-medium relative">
-                                  Trip </div><svg class="shrink-0 w-2.5 h-2.5 relative overflow-visible" width="11"
-                                  height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                      d="M8.62377 3.82876L5.50002 6.87376L2.37627 3.82876C2.32046 3.77425 2.24553 3.74373 2.16752 3.74373C2.0895 3.74373 2.01458 3.77425 1.95877 3.82876C1.93174 3.85524 1.91027 3.88684 1.89562 3.92172C1.88096 3.9566 1.87341 3.99405 1.87341 4.03189C1.87341 4.06972 1.88096 4.10717 1.89562 4.14205C1.91027 4.17693 1.93174 4.20853 1.95877 4.23501L5.28189 7.47501C5.34025 7.53189 5.41852 7.56373 5.50002 7.56373C5.58151 7.56373 5.65978 7.53189 5.71814 7.47501L9.04127 4.23564C9.06848 4.20914 9.09011 4.17746 9.10488 4.14246C9.11965 4.10747 9.12726 4.06987 9.12726 4.03189C9.12726 3.9939 9.11965 3.9563 9.10488 3.92131C9.09011 3.88631 9.06848 3.85463 9.04127 3.82814C8.98546 3.77362 8.91053 3.7431 8.83252 3.7431C8.7545 3.7431 8.67958 3.77362 8.62377 3.82814V3.82876Z"
-                                      fill="black" />
-                              </svg>
-                          </div>
-                          <div
-                              class="bg-[#ffffff] rounded pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row items-center justify-between shrink-0 w-full md:w-[207px]  relative">
-                              <div
-                                  class="text-blue-4 text-left font-['Inter-Medium',_sans-serif] text-xs font-medium relative">
-                                  Trip </div><svg class="shrink-0 w-2.5 h-2.5 relative overflow-visible" width="11"
-                                  height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                      d="M8.62377 3.82876L5.50002 6.87376L2.37627 3.82876C2.32046 3.77425 2.24553 3.74373 2.16752 3.74373C2.0895 3.74373 2.01458 3.77425 1.95877 3.82876C1.93174 3.85524 1.91027 3.88684 1.89562 3.92172C1.88096 3.9566 1.87341 3.99405 1.87341 4.03189C1.87341 4.06972 1.88096 4.10717 1.89562 4.14205C1.91027 4.17693 1.93174 4.20853 1.95877 4.23501L5.28189 7.47501C5.34025 7.53189 5.41852 7.56373 5.50002 7.56373C5.58151 7.56373 5.65978 7.53189 5.71814 7.47501L9.04127 4.23564C9.06848 4.20914 9.09011 4.17746 9.10488 4.14246C9.11965 4.10747 9.12726 4.06987 9.12726 4.03189C9.12726 3.9939 9.11965 3.9563 9.10488 3.92131C9.09011 3.88631 9.06848 3.85463 9.04127 3.82814C8.98546 3.77362 8.91053 3.7431 8.83252 3.7431C8.7545 3.7431 8.67958 3.77362 8.62377 3.82814V3.82876Z"
-                                      fill="black" />
-                              </svg>
-                          </div> -->
-            <!-- <div
-                              class="bg-[#ffffff] rounded pt-3 pr-[18px] pb-3 pl-[18px] flex flex-row items-center justify-between shrink-0 w-full md:w-[207px]  relative">
-                              <div
-                                  class="text-blue-4 text-left font-['Inter-Medium',_sans-serif] text-xs font-medium relative">
-                                  Trip </div><svg class="shrink-0 w-2.5 h-2.5 relative overflow-visible" width="11"
-                                  height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                      d="M8.62377 3.82876L5.50002 6.87376L2.37627 3.82876C2.32046 3.77425 2.24553 3.74373 2.16752 3.74373C2.0895 3.74373 2.01458 3.77425 1.95877 3.82876C1.93174 3.85524 1.91027 3.88684 1.89562 3.92172C1.88096 3.9566 1.87341 3.99405 1.87341 4.03189C1.87341 4.06972 1.88096 4.10717 1.89562 4.14205C1.91027 4.17693 1.93174 4.20853 1.95877 4.23501L5.28189 7.47501C5.34025 7.53189 5.41852 7.56373 5.50002 7.56373C5.58151 7.56373 5.65978 7.53189 5.71814 7.47501L9.04127 4.23564C9.06848 4.20914 9.09011 4.17746 9.10488 4.14246C9.11965 4.10747 9.12726 4.06987 9.12726 4.03189C9.12726 3.9939 9.11965 3.9563 9.10488 3.92131C9.09011 3.88631 9.06848 3.85463 9.04127 3.82814C8.98546 3.77362 8.91053 3.7431 8.83252 3.7431C8.7545 3.7431 8.67958 3.77362 8.62377 3.82814V3.82876Z"
-                                      fill="black" />
-                              </svg>
-                          </div>
-                      </div> -->
             <div class="flex flex-row gap-2 items-center justify-center md:justify-end self-stretch shrink-0 relative">
                 <div class="flex flex-row gap-3 items-center justify-start w-full md:w-auto shrink-0 relative">
                     <div
@@ -156,26 +121,36 @@
         <div
             class="px-4 lg:px-0 gap-8 pt-3 pb-3 flex flex-row items-center justify-center flex-wrap self-stretch shrink-0 relative overflow-hidden">
             @foreach ($hotels as $hotel)
-                <div
-                    class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                    <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
-                    <div class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
-                        <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
-                            <div class=" text-black text-left font-semibold text-lg">{{$hotel->name}}, {{$hotel->city}}</div>
-                            <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
-                                <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
-                                        fill="black" />
-                                </svg>
-                                <div class="text-black text-left font-semibold text-lg">{{$hotel->rating}}</div>
+                <a href="{{ route('hotel.show', ['hotel' => $hotel->id]) }}">
+                    <div
+                        class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
+                        <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
+                        <div
+                            class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
+                            <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">
+                                <div class=" text-black text-left font-semibold text-lg">{{ $hotel->name }},
+                                    {{ $hotel->city }}</div>
+                                <div class=" flex flex-row gap-4 items-center justify-center flex-shrink-0 relative">
+                                    <svg class=" flex-shrink-0 w-6 h-6" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 17.27L16.15 19.78C16.91 20.24 17.84 19.56 17.64 18.7L16.54 13.98L20.21 10.8C20.88 10.22 20.52 9.12001 19.64 9.05001L14.81 8.64001L12.92 4.18001C12.58 3.37001 11.42 3.37001 11.08 4.18001L9.19 8.63001L4.36 9.04001C3.48 9.11001 3.12 10.21 3.79 10.79L7.46 13.97L6.36 18.69C6.16 19.55 7.09 20.23 7.85 19.77L12 17.27Z"
+                                            fill="black" />
+                                    </svg>
+                                    <div class="text-black text-left font-semibold text-lg">{{ $hotel->rating }}</div>
+                                </div>
+                            </div>
+                            {{-- <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div> --}}
+                            <div class=" text-black text-left font-normal text-lg">
+                                @if ($hotel->rooms->first())
+                                    Rp {{ $hotel->rooms->first()->price }} - {{ $hotel->rooms->first()->name }}
+                                @else
+                                    Rp -
+                                @endif
                             </div>
                         </div>
-                        {{-- <div class=" text-gray-400 text-left font-normal text-lg">Distance 86 Kilometer</div> --}}
-                        <div class=" text-black text-left font-normal text-lg">@if($hotel->rooms->first())Rp {{$hotel->rooms->first()->price}} - {{$hotel->rooms->first()->name}}@else Rp - @endif</div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>

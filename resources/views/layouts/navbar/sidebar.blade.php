@@ -2,38 +2,42 @@
 
     <!--Menu bar-->
     <div class="flex-col justify-start items-start gap-6 inline-flex">
-        <a href="{{route('home')}}" class="justify-start items-center gap-[26px] inline-flex">
+        <a href="{{ route('home') }}" class="justify-start items-center gap-[26px] inline-flex">
             <i class="fa-solid fa-magnifying-glass-chart"></i>
             <div class="text-zinc-400 text-lg font-medium font-['Inter']">Dashboard</div>
         </a>
 
         {{-- mitra --}}
-        @if (Auth::user()->role == "mitra")
-            <a href="{{route('management.hotel.index')}}" class="justify-start items-center gap-[26px] inline-flex">
+        @if (Auth::user()->role == 'mitra hotel')
+            <a href="{{ route('management.hotel.index') }}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-hotel"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Hotel Room</div>
             </a>
-            <a href="{{route('management.flight.index')}}" class="justify-start items-center gap-[26px] inline-flex">
+        @endif
+        @if (Auth::user()->role == 'mitra airline')
+            <a href="{{ route('management.flight.index') }}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-plane-departure"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Flight Schedule</div>
             </a>
         @endif
 
         {{-- admin --}}
-        @if (Auth::user()->role == "admin")
-            <a href="{{route('admin.user')}}" class="justify-start items-center gap-[26px] inline-flex">
+        @if (Auth::user()->role == 'admin')
+            <a href="{{ route('admin.user') }}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-users"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">User</div>
             </a>
-            <a href="{{route('admin.management.flight.index')}}" class="justify-start items-center gap-[26px] inline-flex">
+            <a href="{{ route('admin.management.flight.index') }}"
+                class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-hotel"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Hotel Room</div>
             </a>
-            <a href="{{route('admin.management.flight.index')}}" class="justify-start items-center gap-[26px] inline-flex">
+            <a href="{{ route('admin.management.flight.index') }}"
+                class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-plane-departure"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Flight Schedule</div>
             </a>
-            <a href="{{route('admin.saldo')}}" class="justify-start items-center gap-[26px] inline-flex">
+            <a href="{{ route('admin.saldo') }}" class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-money-bill"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Saldo</div>
             </a>
