@@ -9,11 +9,28 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 class UserManagementTable extends LivewireDatatable
 {
     public $model = User::class;
+    public $mitra;
+    public $beforeTableSlot = "components.filter-mitra";
+
+    public function builder()
+    {
+        $query = User::query();
+
+        if($this->mitra == 'all'){
+            $query;
+        }else if ($this->mitra == 'all mitra') {
+            $query->whereIn('role', ['mitra hotel', 'mitra airline']);
+        }else if($this->mitra){
+            $query->where('role', $this->mitra);
+        }
+
+        return $query;
+    }
 
     public function columns()
     {
         return [
-            Column::name('name')->label('Name'),
+            Column::name('name')->label('Name')->searchable(),
             Column::name('email')->label('Email'),
             Column::name('role')->label('Role'),
             Column::name('phone')->label('Phone'),

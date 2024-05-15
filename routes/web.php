@@ -77,20 +77,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/history', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
 
     Route::prefix('admin')->group(function () {
+
         Route::controller(SaldoController::class)->group(function () {
-            Route::prefix('user')->group(function () {
-                Route::get('/saldo', 'index')->name('admin.saldo');
-                Route::get('/create', 'create')->name('admin.saldo.create');
-                Route::post('', 'store')->name('admin.saldo.store');
-                Route::get('/edit/{saldo}', 'edit')->name('admin.saldo.edit');
-                Route::post('/update/{saldo}', 'update')->name('admin.saldo.update');
-                Route::get('/delete/{saldo}', 'destroy')->name('admin.saldo.delete');
+            Route::prefix('saldo')->group(function () {
+                Route::get('/', 'index')->name('admin.saldo');
+                Route::get('/history/{userSaldoId}', 'history')->name('admin.saldo.history');
+                Route::post('/update', 'update')->name('admin.saldo.update');
             });
         });
 
         Route::controller(UserManagementController::class)->group(function () {
             Route::prefix('user')->group(function () {
                 Route::get('/', 'index')->name('admin.user');
+                Route::post('/mitra', 'makeMitra')->name('admin.user.makeMitra');
                 Route::post('', 'store')->name('admin.user.store');
                 Route::get('/edit/{user}', 'edit')->name('admin.user.edit');
                 Route::post('/update/{user}', 'update')->name('admin.user.update');

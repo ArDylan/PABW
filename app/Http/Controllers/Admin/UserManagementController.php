@@ -11,7 +11,8 @@ class UserManagementController extends Controller
 {
     public function index()
     {
-        return view('admin.user.index');
+        $users = User::where('role', 'user')->get();
+        return view('admin.user.index', compact('users'));
     }
 
     public function store(Request $request){
@@ -29,6 +30,14 @@ class UserManagementController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make('12345678'),
         ]);
+
+        return back();
+    }
+
+    public function makeMitra(Request $request){
+        $user = User::find($request->user_id);
+        $user->role = $request->role;
+        $user->save();
 
         return back();
     }

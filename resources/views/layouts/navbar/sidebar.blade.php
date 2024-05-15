@@ -33,6 +33,10 @@
                 <i class="fa-solid fa-plane-departure"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Flight Schedule</div>
             </a>
+            <a href="{{route('admin.saldo')}}" class="justify-start items-center gap-[26px] inline-flex">
+                <i class="fa-solid fa-money-bill"></i>
+                <div class="text-zinc-400 text-lg font-medium font-['Inter']">Saldo</div>
+            </a>
         @endif
 
         <button class="justify-start items-center gap-[26px] inline-flex">

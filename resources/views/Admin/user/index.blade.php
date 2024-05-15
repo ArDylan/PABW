@@ -81,13 +81,76 @@
         </div>
     </div>
 
+    <div id="crud-modal-mitra" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen max-h-full"
+        style="background-color: rgba(0, 0, 0, 0.244)">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Create New Mitra
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-toggle="crud-modal-mitra">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <form class="p-4 md:p-10" method="post" action="{{ route('admin.user.makeMitra') }}">
+                    @csrf
+                    <div class="mb-5">
+                        <label for="name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pengguna</label>
+                        <select name="user_id" class="text-sm w-full pl-5 py-3 pr-9 leading-4 block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-5">
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900">Role</label>
+                            <select name="role" class="text-sm w-full pl-5 py-3 pr-9 leading-4 block rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                <option value="">Choose Role Mitra</option>
+                                <option value="mitra hotel">Mitra Hotel</option>
+                                <option value="mitra airline">Mitra Airline</option>
+                            </select>
+                    </div>
+                    <button type="submit"
+                        class="text-white inline-flex items-center bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        Add New Mitra
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="justify-start items-start bg-white rounded-lg shadow">
         <!--header-->
         <div class="w-full px-10 py-4 justify-between items-center inline-flex">
             <div class="text-slate-500 text-2xl font-bold font-['Inter']">USER MANAGEMENT</div>
-            <div class="justify-start items-center gap-6 flex">
+            <div class="justify-start items-center gap-6 flex mr-5">
+                <button data-modal-target="crud-modal-mitra" data-modal-toggle="crud-modal-mitra"
+                    class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600"
+                    type="button">
+                    <i class="fa-solid fa-plus me-1"></i>Add New Mitra
+                </button>
                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600"
                     type="button">
                     <i class="fa-solid fa-plus me-1"></i>Add New User
                 </button>
