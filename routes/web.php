@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Hotel\HotelController;
 use App\Http\Controllers\Mitra\ManagementFlightController;
 use App\Http\Controllers\Mitra\ManagementHotelController;
+use App\Http\Controllers\Plane\TiketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,8 +34,6 @@ Route::prefix('home')->group(function () {
     Route::get('/hotel', [App\Http\Controllers\HomeController::class, 'hotel'])->name('home.hotel');
     Route::get('/plane', [App\Http\Controllers\HomeController::class, 'airline'])->name('home.plane');
     Route::get('/detail/tiket/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'detailTiket'])->name('detail.tiket');
-    Route::post('/ticket/order/{flight}', [App\Http\Controllers\Plane\TiketController::class, 'orderTicket'])->name('order.ticket');
-    Route::get('/ticket/history', [App\Http\Controllers\Plane\TiketController::class, 'historyTicket'])->name('history.ticket');
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
@@ -50,8 +49,18 @@ Route::middleware('auth')->group(function () {
     Route::prefix('hotel')->group(function () {
         Route::controller(HotelController::class)->group(function () {
             Route::post('/book/{hotel}', 'book')->name('hotel.book');
+            Route::get('/history/book', 'history')->name('history.hotel');
         });
     });
+
+    Route::prefix('flight')->group(function () {
+        Route::controller(TiketController::class)->group(function () {
+            Route::post('/ticket/order/{flight}', 'orderTicket')->name('order.ticket');
+            Route::get('/ticket/history', 'historyTicket')->name('history.ticket');
+
+        });
+    });
+
 
     Route::prefix('management')->group(function () {
         Route::prefix('flight')->group(function () {

@@ -25,7 +25,7 @@
             <!--list kamar contoh-->
             <div class="container mx-auto px-4 overflow-x-auto">
                     <div class="w-[1100px]">
-                    <livewire:history-flight-table />
+                    <livewire:history-hotel-table />
                 </div>
             </div>
             <!--end of list kamar contoh-->

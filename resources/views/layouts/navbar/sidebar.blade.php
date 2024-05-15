@@ -43,6 +43,16 @@
             </a>
         @endif
 
+        {{-- user --}}
+        <a href="{{ route('history.hotel') }}" class="justify-start items-center gap-[26px] inline-flex">
+            <i class="fa-solid fa-hotel"></i>
+            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Booking Hotel</div>
+        </a>
+        <a href="{{ route('history.ticket') }}" class="justify-start items-center gap-[26px] inline-flex">
+            <i class="fa-solid fa-plane-departure"></i>
+            <div class="text-zinc-400 text-lg font-medium font-['Inter']">Plane Tiket</div>
+        </a>
+
         <button class="justify-start items-center gap-[26px] inline-flex">
             <i class="fa-solid fa-gear"></i>
             <div class="text-zinc-400 text-lg font-medium font-['Inter']">Setting</div>

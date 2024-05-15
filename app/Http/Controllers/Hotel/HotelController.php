@@ -87,4 +87,10 @@ class HotelController extends Controller
 
         return back();
     }
+
+    public function history()
+    {
+        $booked = BookHotel::where('user_id', Auth::id())->get();
+        return view('home.hotel.history-hotel', compact('booked'));
+    }
 }

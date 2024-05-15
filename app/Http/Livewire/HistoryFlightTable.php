@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
-use Livewire\Component;
-
-class HistoryTable extends LivewireDatatable
+class HistoryFlightTable extends LivewireDatatable
 {
     public $model = ModelsBookTiket::class;
 

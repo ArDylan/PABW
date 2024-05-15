@@ -9,15 +9,10 @@
         <div class="flex md:order-2 space-x-2 md:space-x-5 rtl:space-x-reverse">
             @if (Auth::user())
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                    <a class="dropdown-item text-white" href="{{ route('home') }}">
+                        {{ __('Dashboard') }}
                     </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 </div>
             @else
                 <div
