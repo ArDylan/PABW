@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class TiketController extends Controller
 {
-
-
     public function detailTiket(FlightSchedule $flight)
     {
         $startDate = Carbon::parse($flight->departure);
@@ -29,7 +27,11 @@ class TiketController extends Controller
         $time_diff = $diffInHours . ' jam ' . $remainingMinutes . ' menit';
 
         $booked = BookTiket::where('flight_schedule_id', $flight->id)->get();
-        return view('home.plane.detail-tiket-plane', compact('flight', 'time_diff', 'booked'));
+
+        // sugesstion tiket
+        $suggestion = FlightSchedule::where('from', $flight->from)->where('status', 'posted')->where('id', '!=', $flight->id)->get();
+
+        return view('home.plane.detail-tiket-plane', compact('flight', 'time_diff', 'booked', 'suggestion'));
     }
 
     public function orderTicket(Request $request, FlightSchedule $flight)

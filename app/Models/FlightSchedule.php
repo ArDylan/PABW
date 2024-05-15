@@ -14,4 +14,9 @@ class FlightSchedule extends Model
     {
         return $this->belongsTo(Airline::class);
     }
+
+    public function bookTiket()
+    {
+        return $this->hasMany(BookTiket::class);
+    }
 }

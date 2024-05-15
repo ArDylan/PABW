@@ -21,7 +21,6 @@
             style="box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);">
             <div class="flex flex-row gap-3 items-center justify-start self-stretch shrink-0 relative">
                 <div class="flex flex-row gap-3 items-center justify-start shrink-0 relative">
-                    <img src="/asset/img/book2.png" class="rounded" alt="">
                     <div class=" text-left font-['Inter-Medium',_sans-serif] text-sm font-medium relative">
                         Find Flights </div>
                 </div>
@@ -29,7 +28,6 @@
                     style="transform-origin: 2 0; transform: rotate(-90deg) scale(1, 1); ">
                 </div>
                 <div class="flex flex-row gap-3 items-center justify-start shrink-0 relative">
-                    <img src="/asset/img/bed.png" class="rounded" alt="">
                     <div class="text-white text-left font-['Inter-Medium',_sans-serif] text-sm font-medium relative">
                         Find Stays </div>
                 </div>
@@ -124,7 +122,6 @@
                 <a href="{{ route('hotel.show', ['hotel' => $hotel->id]) }}">
                     <div
                         class="shadow-md pb-10 rounded-lg flex flex-col gap-8 items-start justify-start flex-shrink-0 relative overflow-hidden">
-                        <img class=" rounded-lg flex-shrink-0 w-350 h-250 object-cover" src="./asset/img/stay.png" />
                         <div
                             class=" px-8 flex flex-col gap-8 items-start justify-start self-stretch flex-shrink-0 relative">
                             <div class="flex flex-row items-start justify-between self-stretch flex-shrink-0 relative">

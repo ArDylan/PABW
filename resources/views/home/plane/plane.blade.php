@@ -21,7 +21,6 @@
             style="box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);">
             <div class="flex flex-row gap-3 items-center justify-start self-stretch shrink-0 relative">
                 <div class="flex flex-row gap-3 items-center justify-start shrink-0 relative">
-                    <img src="/asset/img/book2.png" class="rounded" alt="">
                     <div class="text-white text-left font-['Inter-Medium',_sans-serif] text-sm font-medium relative">
                         Find Flights </div>
                 </div>
@@ -29,7 +28,6 @@
                     style="transform-origin: 2 0; transform: rotate(-90deg) scale(1, 1); ">
                 </div>
                 <div class="flex flex-row gap-3 items-center justify-start shrink-0 relative">
-                    <img src="/asset/img/bed.png" class="rounded" alt="">
                     <div
                         class="text-[rgba(0,0,0,0.25)] text-left font-['Inter-Medium',_sans-serif] text-sm font-medium relative">
                         Find Stays </div>

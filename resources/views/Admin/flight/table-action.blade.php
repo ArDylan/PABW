@@ -28,14 +28,15 @@
 
         </li>
         <li class="px-4 py-2 hover:bg-gray-400">
-            <button class="text-center  hover:bg-gray-400" data-modal-target="edit-voter-modal"
+            <a href="{{route('management.hotel.detail', ['id' => $id])}}" class="text-left hover:bg-gray-400" data-modal-target="edit-voter-modal"
                 data-modal-toggle="edit-voter-modal"
                 onclick="">
-                <div class="flex justify-center items-center">
+                <div class="flex justify-start items-left">
                     <span class="fa fa-eye"></span>
+
                     <p class="ml-1">Detail</p>
                 </div>
-            </button>
+            </a>
         </li>
         <li class="px-4 py-2 hover:bg-gray-400">
             <form action="{{route('admin.management.flight.approve')}}" method="post">
@@ -53,7 +54,7 @@
         <li class="px-4 py-2 hover:bg-gray-400">
             <form action="{{route('admin.management.flight.delete',  ['flightSchedule' => $id])}}" method="POST">
                 @csrf
-                @method('DELETE')   
+                @method('DELETE')
                 <button class="text-center  hover:bg-gray-400" data-modal-target="delete-voter-modal"
                     data-modal-toggle="delete-voter-modal" onclick="">
                     <div class="flex justify-center items-center">

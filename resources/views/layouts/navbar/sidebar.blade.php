@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-users"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">User</div>
             </a>
-            <a href="{{ route('admin.management.flight.index') }}"
+            <a href="{{ route('management.hotel.index') }}"
                 class="justify-start items-center gap-[26px] inline-flex">
                 <i class="fa-solid fa-hotel"></i>
                 <div class="text-zinc-400 text-lg font-medium font-['Inter']">Hotel Room</div>

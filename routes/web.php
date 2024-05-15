@@ -123,16 +123,5 @@ Route::middleware('auth')->group(function () {
                 });
             });
         });
-
-        Route::prefix('management')->group(function () {
-            Route::prefix('hotel')->group(function () {
-                Route::controller(HotelManagementController::class)->group(function () {
-                    Route::get('/', 'index')->name('admin.management.hotel.index');
-                    Route::post('/store', 'store')->name('admin.management.hotel.store');
-                    Route::get('/edit', 'edit')->name('admin.management.hotel.edit');
-                    Route::get('/delete', 'delete')->name('admin.management.hotel.delete');
-                });
-            });
-        });
     });
 });

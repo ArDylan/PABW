@@ -51,7 +51,6 @@
                             <div class="self-stretch flex-col justify-center items-center gap-2 flex">
                                 <div class="h-6 px-2 bg-white rounded justify-center items-start gap-6 inline-flex">
                                     <div class="justify-start items-center gap-2 flex">
-                                        <img src="/asset/img/total_seat.png" class="w-6 h-6 relative" alt="">
                                         <div class=" text-black text-lg font-normal font-['Inter']">
                                             {{ $flight->total_seat }}
                                         </div>
@@ -59,8 +58,7 @@
                                         </div>
                                     </div>
                                     <div class="Frame73 justify-start items-center gap-2 flex">
-                                        <img src="/asset/img/has_seat.png" class="w-6 h-6 relative" alt="">
-                                        <div class=" text-black text-lg font-normal font-['Inter']">-</div>
+                                        <div class=" text-black text-lg font-normal font-['Inter']">{{ $flight->bookTiket->count() }}</div>
                                         <div class="HasPassenger text-black text-lg font-normal font-['Inter']">Has
                                             Passenger
                                         </div>
@@ -97,21 +95,23 @@
                 <div class="w-full border border-black border-opacity-20"></div>
                 </form>
                 <!--Rekomendasi Flights pada tujuan yg sama-->
-                <div class="w-full p-3 bg-white rounded flex-col justify-start items-start gap-6 inline-flex">
-                    <div class="w-full justify-between items-start inline-flex">
-                        <div class="text-black text-lg font-semibold font-['Inter']">{{ $flight->airline->name }}</div>
-                        <div class="text-black text-lg font-semibold font-['Inter']">{{ $flight->from }} -
-                            {{ $flight->departure }}</div>
-                    </div>
-                    <div class="text-stone-300 text-sm font-semibold font-['Inter']">Return | {{ $flight->flight_date }} |
-                        {{ $flight->total_seat }} Passenger | Economy</div>
-                    <div class="w-full justify-between items-center inline-flex">
-                        <div class="text-slate-500 text-lg font-semibold font-['Inter']">Rp {{ $flight->price }}</div>
-                        <div class="px-3 py-2 bg-blue-500 rounded justify-center items-center gap-2 flex">
-                            <div class="text-white text-sm font-medium font-['Inter']">Show Flights</div>
+                @foreach ($suggestion as $tiket)
+                    <div class="w-full p-3 bg-white rounded flex-col justify-start items-start gap-6 inline-flex">
+                        <div class="w-full justify-between items-start inline-flex">
+                            <div class="text-black text-lg font-semibold font-['Inter']">{{ $tiket->airline->name }}</div>
+                            <div class="text-black text-lg font-semibold font-['Inter']">{{ $tiket->from }} -
+                                {{ $tiket->departure }}</div>
+                        </div>
+                        <div class="text-stone-300 text-sm font-semibold font-['Inter']">Return | {{ $tiket->flight_date }} |
+                            {{ $tiket->total_seat }} Passenger | Economy</div>
+                        <div class="w-full justify-between items-center inline-flex">
+                            <div class="text-slate-500 text-lg font-semibold font-['Inter']">Rp {{ $tiket->price }}</div>
+                            <div class="px-3 py-2 bg-blue-500 rounded justify-center items-center gap-2 flex">
+                                <div class="text-white text-sm font-medium font-['Inter']">Show Flights</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
