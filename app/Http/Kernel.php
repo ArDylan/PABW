@@ -54,6 +54,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        'suspend' => \App\Http\Middleware\Suspend::class,
+        'mitra.hotel' => \App\Http\Middleware\MitraHotel::class,
+        'mitra.pesawat' => \App\Http\Middleware\MitraFlight::class,
+        'mitra.hotel.admin' => \App\Http\Middleware\MitraHotelOrAdmin::class,
+        'admin' => \App\Http\Middleware\Admin::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

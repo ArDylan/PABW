@@ -44,7 +44,7 @@ Route::prefix('hotel')->group(function () {
     });
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'suspend'])->group(function () {
 
     Route::prefix('hotel')->group(function () {
         Route::controller(HotelController::class)->group(function () {
@@ -57,30 +57,33 @@ Route::middleware('auth')->group(function () {
         Route::controller(TiketController::class)->group(function () {
             Route::post('/ticket/order/{flight}', 'orderTicket')->name('order.ticket');
             Route::get('/ticket/history', 'historyTicket')->name('history.ticket');
-
         });
     });
 
 
     Route::prefix('management')->group(function () {
         Route::prefix('flight')->group(function () {
-            Route::controller(ManagementFlightController::class)->group(function () {
-                Route::get('/', 'index')->name('management.flight.index');
-                Route::post('/store', 'store')->name('management.flight.store');
-                Route::get('/edit', 'edit')->name('management.flight.edit');
-                Route::get('/delete', 'delete')->name('management.flight.delete');
+            Route::middleware(['mitra.hotel'])->group(function () {
+                Route::controller(ManagementFlightController::class)->group(function () {
+                    Route::get('/', 'index')->name('management.flight.index');
+                    Route::post('/store', 'store')->name('management.flight.store');
+                    Route::get('/edit', 'edit')->name('management.flight.edit');
+                    Route::get('/delete', 'delete')->name('management.flight.delete');
+                });
             });
         });
 
         Route::prefix('hotel')->group(function () {
-            Route::controller(ManagementHotelController::class)->group(function () {
-                Route::get('/', 'index')->name('management.hotel.index');
-                Route::post('/store', 'store')->name('management.hotel.store');
-                Route::get('/edit', 'edit')->name('management.hotel.edit');
-                Route::get('/delete', 'delete')->name('management.hotel.delete');
-                Route::get('/detail/{id}', 'detail')->name('management.hotel.detail');
-                // management.hotel.add.rooms
-                Route::post('/add/rooms/{id}', 'addRooms')->name('management.hotel.add.rooms');
+            Route::middleware(['mitra.hotel.admin'])->group(function () {
+                Route::controller(ManagementHotelController::class)->group(function () {
+                    Route::get('/', 'index')->name('management.hotel.index');
+                    Route::post('/store', 'store')->name('management.hotel.store');
+                    Route::get('/edit', 'edit')->name('management.hotel.edit');
+                    Route::get('/delete', 'delete')->name('management.hotel.delete');
+                    Route::get('/detail/{id}', 'detail')->name('management.hotel.detail');
+                    // management.hotel.add.rooms
+                    Route::post('/add/rooms/{id}', 'addRooms')->name('management.hotel.add.rooms');
+                });
             });
         });
     });
@@ -93,33 +96,35 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
 
-        Route::controller(SaldoController::class)->group(function () {
-            Route::prefix('saldo')->group(function () {
-                Route::get('/', 'index')->name('admin.saldo');
-                Route::post('/update', 'update')->name('admin.saldo.update');
+        Route::middleware(['admin'])->group(function () {
+            Route::controller(SaldoController::class)->group(function () {
+                Route::prefix('saldo')->group(function () {
+                    Route::get('/', 'index')->name('admin.saldo');
+                    Route::post('/update', 'update')->name('admin.saldo.update');
+                });
             });
-        });
 
-        Route::controller(UserManagementController::class)->group(function () {
-            Route::prefix('user')->group(function () {
-                Route::get('/', 'index')->name('admin.user');
-                Route::post('/mitra', 'makeMitra')->name('admin.user.makeMitra');
-                Route::post('', 'store')->name('admin.user.store');
-                Route::get('/edit/{user}', 'edit')->name('admin.user.edit');
-                Route::put('/update/{user}', 'update')->name('admin.user.update');
-                Route::delete('/delete/{user}', 'destroy')->name('admin.user.delete');
+            Route::controller(UserManagementController::class)->group(function () {
+                Route::prefix('user')->group(function () {
+                    Route::get('/', 'index')->name('admin.user');
+                    Route::post('/mitra', 'makeMitra')->name('admin.user.makeMitra');
+                    Route::post('', 'store')->name('admin.user.store');
+                    Route::get('/edit/{user}', 'edit')->name('admin.user.edit');
+                    Route::put('/update/{user}', 'update')->name('admin.user.update');
+                    Route::delete('/delete/{user}', 'destroy')->name('admin.user.delete');
+                });
             });
-        });
 
-        Route::prefix('management')->group(function () {
-            Route::prefix('flight')->group(function () {
-                Route::controller(FlightManagementController::class)->group(function () {
-                    Route::get('/', 'index')->name('admin.management.flight.index');
-                    Route::post('/approve', 'approve')->name('admin.management.flight.approve');
-                    Route::post('/store', 'store')->name('admin.management.flight.store');
-                    Route::get('/edit/{flightSchedule}', 'edit')->name('admin.management.flight.edit');
-                    Route::put('/update/{flightSchedule}', 'update')->name('admin.management.flight.update');
-                    Route::delete('/delete/flight/{flightSchedule}', 'delete')->name('admin.management.flight.delete');
+            Route::prefix('management')->group(function () {
+                Route::prefix('flight')->group(function () {
+                    Route::controller(FlightManagementController::class)->group(function () {
+                        Route::get('/', 'index')->name('admin.management.flight.index');
+                        Route::post('/approve', 'approve')->name('admin.management.flight.approve');
+                        Route::post('/store', 'store')->name('admin.management.flight.store');
+                        Route::get('/edit/{flightSchedule}', 'edit')->name('admin.management.flight.edit');
+                        Route::put('/update/{flightSchedule}', 'update')->name('admin.management.flight.update');
+                        Route::delete('/delete/flight/{flightSchedule}', 'delete')->name('admin.management.flight.delete');
+                    });
                 });
             });
         });
