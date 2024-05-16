@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Mitra;
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
 use App\Models\Room;
+use App\Models\Facility;
+use App\Models\RoomFacility;
 use Illuminate\Http\Request;
 
 class ManagementHotelController extends Controller
@@ -74,7 +76,8 @@ class ManagementHotelController extends Controller
     public function manageRoom($id)
     {
         $hotel = Hotel::find($id);
-        return view('mitra.hotel.manage-room', compact('hotel'));
+        $facilities = Facility::all();
+        return view('mitra.hotel.manage-room', compact('hotel', 'facilities'));
     }
 
     public function storeRoom(Request $request, $id)
@@ -104,8 +107,9 @@ class ManagementHotelController extends Controller
     public function detail($id) {
         $hotel = Hotel::with('rooms')->find($id);
         $rooms = Room::where('hotel_id', $id)->get();
+        $facilities = Facility::all();
 
-        return view('mitra.hotel.detail', compact('hotel', 'rooms'));
+        return view('mitra.hotel.detail', compact('hotel', 'rooms', 'facilities'));
     }
 
     public function addRooms($id, Request $request) {
@@ -113,17 +117,43 @@ class ManagementHotelController extends Controller
             'name' => 'required',
             'price' => 'required',
             'room_number' => 'required',
+            'facilities' => 'required',
         ]);
 
         $hotel = Hotel::find($id);
 
-        Room::create([
+        $room = Room::create([
             'name' => $request->name,
             'price' => $request->price,
             'room_number' => $request->room_number,
             'hotel_id' => $hotel->id,
         ]);
 
+        foreach($request->facilities as $facility){
+            RoomFacility::create([
+                'room_id' => $room->id,
+                'facility_id' => $facility,
+            ]);
+        }
+        
+
+        return back();
+    }
+
+    public function updateStatusRooms($id, Request $request) {
+        $room = Room::find($id);
+        if($room->status == 'booked'){
+            $room->bookHotel->where('status', 'booked')->first()->update(['check_in' => date('Y-m-d')]);
+            $room->status = 'used';
+        } elseif($room->status == 'used'){
+            $room->bookHotel->where('status', 'booked')->first()->update(['status' => 'checkout', 'check_out' => date('Y-m-d')]);
+            $room->status = 'available';
+        } elseif($room->status == 'available'){
+            $room->status = 'maintenance';
+        } elseif($room->status == 'maintenance'){
+            $room->status = 'available';
+        }
+        $room->save();
         return back();
     }
 }

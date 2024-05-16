@@ -82,6 +82,17 @@ class TiketController extends Controller
                 'user_id' => $user->id,
             ]);
 
+            $user->userSaldoHistory()->create([
+                'time' => Carbon::now(),
+                'description' => 'Pembelian tiket pesawat sebesar Rp ' . number_format($flight->price, 0, ',', '.'),
+                'user_saldo_id' => $flight->user->userSaldo->id,
+                'user_id' => $flight->user->id,
+            ]);
+
+            $flight->user->userSaldo()->update([
+                'nominal' => $flight->user->userSaldo->nominal + $flight->price
+            ]);
+
             $user->userSaldo->update([
                 'nominal' => $user->userSaldo->nominal - $flight->price
             ]);

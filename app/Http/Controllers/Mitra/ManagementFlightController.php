@@ -45,4 +45,16 @@ class ManagementFlightController extends Controller
 
         return back();
     }
+
+    public function updateStatus(FlightSchedule $flight, Request $request){
+        if($flight->status == 'posted'){
+            $flight->status = 'flight';
+        }elseif($flight->status == 'flight'){
+            $flight->status = 'expire';
+        }
+        $flight->save();
+
+        return back();
+    }
+
 }

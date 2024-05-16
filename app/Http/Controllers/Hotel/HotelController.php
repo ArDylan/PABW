@@ -53,7 +53,7 @@ class HotelController extends Controller
         }
         $room = $hotel->rooms()->where('id', $request->room_id)->first();
 
-        DB::transaction(function () use ($user, $room, $request) {
+        DB::transaction(function () use ($user, $room, $request, $hotel) {
             $room->update([
                 'status' => 'booked'
             ]);
@@ -75,6 +75,17 @@ class HotelController extends Controller
 
             $user->userSaldo()->update([
                 'nominal' => $user->userSaldo->nominal - $room->price
+            ]);
+
+            $hotel->user->userSaldo()->update([
+                'nominal' => $hotel->user->userSaldo->nominal + $room->price
+            ]);
+
+            $hotel->user->userSaldoHistory()->create([
+                'description' => 'Pembayaran booking hotel ' . $room->hotel->name . ' ' . $room->name . ' ' . $request->order_date . ' ' . $room->price,
+                'time' => now(),
+                'user_saldo_id' => $hotel->user->userSaldo->id,
+                'user_id' => $hotel->user->id,
             ]);
 
             $user->userSaldoHistory()->create([

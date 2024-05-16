@@ -27,7 +27,8 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form class="p-4 md:p-5" method="post" action="{{ route('management.hotel.add.rooms', ['id' => $hotel->id]) }}">
+                <form class="p-4 md:p-5" method="post"
+                    action="{{ route('management.hotel.add.rooms', ['id' => $hotel->id]) }}">
                     @csrf
                     <div class="grid gap-4 mb-4 grid-cols-1">
                         <div class="col-span-1 sm:col-span-1">
@@ -50,6 +51,19 @@
                             <input type="text" name="price" id="price"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 required="">
+                        </div>
+                        <div class="col-span-1 sm:col-span-1">
+                            <label for="price"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                            @foreach ($facilities as $facility)
+                                <div class="block">
+                                    <input type="checkbox" name="facilities[]"
+                                        value="{{ $facility->id }}"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 mt-2">
+                                    <label for="facility"
+                                        class="text-sm font-medium text-gray-900 dark:text-white">{{ $facility->name }}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <button type="submit"
@@ -79,7 +93,8 @@
 
         {{-- button add room --}}
         <div class="flex justify-start">
-            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Tambah Kamar
             </button>
         </div>
@@ -87,22 +102,32 @@
         <div class="grid grid-cols-3 gap-8 mt-10">
             @foreach ($rooms as $room)
                 <div>
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">{{$room->name}}</div>
-                            <p class="text-gray-700 text-base">
-                                Nomor Kamar: {{ $room->room_number }}, Rp: {{ $room->price }}
-                            </p>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#AC</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#WIFI</span>
-                            <span
-                                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#TV</span>
-                        </div>
-                    </div>
+                    <form action="{{ route('management.hotel.updateStatus.rooms', $room->id) }}" method="POST">
+                        @csrf
+                        <button class="" type="submit">
+                            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                                <div class="px-6 py-4">
+                                    <div class="flex flex-row justify-between">
+                                        <div class="font-bold text-xl mb-2">{{ $room->name }}</div>
+                                        <div class="font-bold text-md">{{ $room->status }}</div>
+                                    </div>
+                                    <p class="text-gray-700 text-base">
+                                        Nomor Kamar: {{ $room->room_number }}, Rp: {{ $room->price }}
+                                    </p>
+                                    @if ($room->status == "booked" || $room->status == "used")
+                                        <p class="text-gray-700 text-base text-start">{{$room->bookHotel->sortByDesc('created_at')->first()->user->name}} - {{$room->bookHotel->sortByDesc('created_at')->first()->user->email}}</p>
+                                    @endif
+
+                                </div>
+                                <div class="px-6 pt-4 pb-2">
+                                    @foreach ($room->roomFacility as $facility)
+                                        <span
+                                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{$facility->facility->name}}</span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
             @endforeach
         </div>

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('room_number', 20);
             $table->string('price', 14);
             $table->foreignId('hotel_id')->constrained('hotels');
-            $table->enum('status', ['available', 'booked', 'maintenance'])->default('available');
+            $table->enum('status', ['available', 'booked', 'used', 'maintenance'])->default('available');
             $table->timestamps();
         });
     }
