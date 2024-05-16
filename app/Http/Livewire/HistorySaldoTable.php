@@ -15,7 +15,7 @@ class HistorySaldoTable extends LivewireDatatable
 
     public function builder()
     {
-        return UserSaldoHistory::query()->where('user_saldo_id', $this->userSaldoId);
+        return UserSaldoHistory::query()->where('user_saldo_id', $this->userSaldoId)->orderBy('user_saldo_histories.id', 'desc');
     }
 
     public function columns()
