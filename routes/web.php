@@ -63,7 +63,7 @@ Route::middleware(['auth', 'suspend'])->group(function () {
 
     Route::prefix('management')->group(function () {
         Route::prefix('flight')->group(function () {
-            Route::middleware(['mitra.hotel'])->group(function () {
+            Route::middleware(['mitra.pesawat'])->group(function () {
                 Route::controller(ManagementFlightController::class)->group(function () {
                     Route::get('/', 'index')->name('management.flight.index');
                     Route::post('/store', 'store')->name('management.flight.store');
