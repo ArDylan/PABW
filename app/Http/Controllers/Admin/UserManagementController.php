@@ -58,4 +58,14 @@ class UserManagementController extends Controller
         $user->delete();
         return back();
     }
+
+    public function suspend(User $user){
+        if($user->is_suspend == 1){
+            $user->is_suspend = 0;
+        }else{
+            $user->is_suspend = 1;
+        }
+        $user->save();
+        return redirect()->route('admin.user');
+    }
 }

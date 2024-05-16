@@ -105,6 +105,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(UserManagementController::class)->group(function () {
             Route::prefix('user')->group(function () {
                 Route::get('/', 'index')->name('admin.user');
+                Route::post('/suspend/{user}', 'suspend')->name('admin.user.suspend');
                 Route::post('/mitra', 'makeMitra')->name('admin.user.makeMitra');
                 Route::post('', 'store')->name('admin.user.store');
                 Route::get('/edit/{user}', 'edit')->name('admin.user.edit');

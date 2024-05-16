@@ -33,6 +33,9 @@ class UserManagementTable extends LivewireDatatable
             Column::name('name')->label('Name')->searchable(),
             Column::name('email')->label('Email'),
             Column::name('role')->label('Role'),
+            Column::callback('is_suspend', function ($is_suspend) {
+                return $is_suspend ? '<label class="text-red-500">Suspend</label>' : '<label class="text-green-500">Active</label>';
+            })->label('Status'),
             Column::name('phone')->label('Phone'),
             Column::callback(['id'], function ($id) {
                 return view('admin.user.table-action', ['id' => $id]);

@@ -33,6 +33,10 @@
 
                 <button type="submit" class="p-3 bg-blue-600 text-white hover:bg-blue-800 rounded-lg shadow-lg">Submit</button>
             </form>
+                <form action="{{route('admin.user.suspend', $user->id)}}" method="post">
+                    @csrf
+                    <button class="mt-3 btn @if($user->is_suspend == 0) bg-red-500 @else bg-green-500 @endif rounded-lg text-white px-4 py-2">@if($user->is_suspend == 0) Suspend @else batalkan suspend  @endif</button>
+                </form>
         </div>
     </div>
 @endsection
