@@ -12,9 +12,9 @@ class SaldoTable extends LivewireDatatable
 {
     public $model = User::class;
 
-    public function query()
+    public function builder()
     {
-        return User::query()->where('name', 'like', '%' . $this->search . '%');
+        return User::query()->where('name', 'like', '%' . $this->search . '%')->orderBy('users.created_at', 'desc');
     }
 
     public function columns()

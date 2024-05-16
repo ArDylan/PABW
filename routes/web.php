@@ -99,6 +99,7 @@ Route::middleware('auth')->group(function () {
             Route::prefix('saldo')->group(function () {
                 Route::get('/', 'index')->name('admin.saldo');
                 Route::post('/update', 'update')->name('admin.saldo.update');
+                Route::post('/kurangi', 'kurangi')->name('admin.saldo.kurangi');
             });
         });
 

@@ -52,4 +52,29 @@ class SaldoController extends Controller
         return redirect()->route('admin.saldo');
     }
 
+    public function kurangi(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'nominal' => 'required|numeric',
+        ]);
+
+        $saldo = UserSaldo::where('user_id', $request->user_id)->first();
+
+
+        $saldoHistory = UserSaldoHistory::create([
+            'user_id' => $request->user_id,
+            'user_saldo_id' => $saldo->id,
+            'time' => Carbon::now(),
+            'description' => 'Saldo berhasil mengurangi saldo sebesar Rp ' . number_format($request->nominal, 0, ',', '.'),
+        ]);
+        $saldo->update([
+            'nominal' => $saldo->nominal - $request->nominal
+        ]);
+
+
+
+        return redirect()->route('admin.saldo');
+    }
+
 }
